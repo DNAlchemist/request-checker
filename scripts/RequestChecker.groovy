@@ -21,18 +21,22 @@ void doRequest(request) {
                 writer << request.requestBody
             }
         }
-        println "👁    ${request.requestUrl}: ${content.text}"
 
+        def response = content.text
+        def wasStatus = connection.responseCode
+
+        println "👁    ${request.requestUrl}: ${response}"
+
+        def expectedResponse = request.expectedResponse
         def expectedStatus = request.expectedStatus
+
         if (expectedStatus) {
-            def wasStatus = connection.responseCode
             assert wasStatus == expectedStatus
         }
-        
-        def expectedResponse = JsonOutput.toJson(request.expectedResponse)
+
         if (expectedResponse) {
-            def response = content.text
-            assert response == request.expectedResponse
+            def expectedResponseJson = JsonOutput.toJson(expectedResponse)
+            assert response == expectedResponseJson
         }
     }
 
