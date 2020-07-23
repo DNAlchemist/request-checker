@@ -11,6 +11,6 @@
     "requestUrl": "https://google.com",
     "requestMethod": "GET",
     "expectedStatus": 200,
-    "expectedBody": "FAIL"
+    "expectedResponse": "FAIL"
   }
 ]
