@@ -1,0 +1,15 @@
+[
+  {
+    "requestUrl": "https://postman-echo.com/post",
+    "requestMethod": "POST",
+    "requestBody": {
+      "data": "This is expected to be sent back as part of response body."
+    },
+    "expectedStatus": 200
+  },
+  {
+    "requestUrl": "https://google.com",
+    "requestMethod": "GET",
+    "expectedStatus": 200
+  }
+]
